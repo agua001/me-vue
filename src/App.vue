@@ -1,11 +1,16 @@
 <template>
-<!-- 总组件集合 -->
+<!-- 根组件，被引入到main.js -->
   <div id="app">
-    <router-view></router-view>
+    <router-view/>
   </div>
 </template>
+
 <script>
-  export default {
-    name: 'App'
-  }
+export default {
+  name: 'App'
+}
 </script>
+
+<style>
+
+</style>

@@ -1,17 +1,40 @@
-// 路由
-// 引入vue框架
+// 引入到main.js
 import Vue from 'vue'
-// 引入路由插件
 import Router from 'vue-router'
-// 引入登录页面组件
 import Login from '@/views/Login.vue'
-// 使用路由插件
+// 引入首页组件
+import Home from '@/views/Home.vue'
+// 引入用户管理
+import Welcome from '@/views/Welcome'
+// 用户列表页面
+import Users from '@/views/Users'
+
 Vue.use(Router)
-//导出路由规则
+
 export default new Router({
-  routes: {
-    path: '/login',
-    name: 'login',
-    component: Login
-  }
+  routes: [
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/',
+      name: 'home',
+      component: Home,
+      redirect: { name: 'welcome' },
+      children: [
+        {
+          name: 'welcome',
+          path: 'welcome',
+          component: Welcome
+        },
+        {
+          name: 'users',
+          path: 'users',
+          component: Users
+        }
+      ]
+    }
+  ]
 })
